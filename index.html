@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEXORIUM LABS - WhatsApp MOD Official Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- tsParticles Library untuk Efek Partikel 3D -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.0.6/tsparticles.slim.bundle.min.js"></script>
+
+  <style>
+    :root {
+      /* PALET WARNA PERIWINKLE AESTHETIC */
+      --bg-dark: #0f111a;
+      --card-bg: rgba(22, 25, 41, 0.82);
+      --card-border: rgba(165, 180, 252, 0.25);
+      --periwinkle-main: #a5b4fc;     /* Periwinkle Terang */
+      --periwinkle-hover: #818cf8;    /* Periwinkle Agak Gelap */
+      --periwinkle-glow: rgba(165, 180, 252, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --yt-color: #ff4747;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      /* Background Anime Sasuke dengan Overlay Glow Periwinkle */
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(165, 180, 252, 0.18) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(15, 17, 26, 0.85), rgba(15, 17, 26, 0.95)),
+        url('https://www.image2url.com/r2/default/images/1785412093580-00c42c6f-1115-4cd4-bc2c-475096a76d44.jpg');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Container Partikel 3D Background */
+    #tsparticles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .brand-logo-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 0 15px var(--periwinkle-glow);
+      border: 1px solid var(--card-border);
+    }
+
+    .brand-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, #ffffff, var(--periwinkle-main));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* CONTAINER & PAGES */
+    .container {
+      width: 100%;
+      max-width: 900px;
+      padding: 20px;
+      z-index: 10;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SEARCH BAR AESTHETIC */
+    .search-container {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto 20px auto;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 14px 20px 14px 48px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 0.92rem;
+      outline: none;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search-input:focus {
+      border-color: var(--periwinkle-main);
+      box-shadow: 0 0 20px var(--periwinkle-glow);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: var(--periwinkle-main);
+      pointer-events: none;
+    }
+
+    /* STYLES WIDGET IKLAN NATIVE BANNER */
+    .ad-container-native {
+      width: 100%;
+      margin: 20px 0 25px 0;
+      text-align: center;
+      min-height: 80px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed var(--card-border);
+      border-radius: 16px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* GRID UNTUK DAFTAR BANYAK APLIKASI */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    /* CARD STYLE */
+    .app-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 30px 24px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .app-card-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--periwinkle-main);
+      box-shadow: 0 10px 30px var(--periwinkle-glow);
+    }
+
+    .app-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(165, 180, 252, 0.12);
+      border: 1px solid rgba(165, 180, 252, 0.3);
+      color: var(--periwinkle-main);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .wa-app-icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 16px auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(165, 180, 252, 0.3));
+    }
+
+    .app-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .app-version {
+      font-size: 0.85rem;
+      color: var(--periwinkle-main);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .app-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* INFO TABLE */
+    .info-table {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 24px auto;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .info-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 0.88rem;
+    }
+
+    .info-table td:first-child {
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* BUTTONS */
+    .btn-back {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+
+    .btn-back:hover {
+      color: var(--periwinkle-main);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--periwinkle-main);
+      color: #0b0f19;
+      box-shadow: 0 4px 15px var(--periwinkle-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--periwinkle-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-yt {
+      background: var(--yt-color);
+      color: white;
+    }
+
+    .btn-disabled {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 24px 0;
+      align-items: center;
+    }
+
+    /* FOOTER */
+    .footer-container {
+      width: 100%;
+      max-width: 900px;
+      padding: 0 20px;
+      margin-top: auto;
+      z-index: 10;
+    }
+
+    .footer-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .footer-brand-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .footer-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .footer-pages {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-pages h4 {
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .footer-pages a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-pages a:hover {
+      color: var(--periwinkle-main);
+    }
+
+    .footer-copyright {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .footer-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Efek Partikel 3D Background -->
+  <div id="tsparticles"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="brand" onclick="showPage('pageMain')">
+      <img id="navbarLogo" src="" alt="VEXORIUM LABS Logo" class="brand-logo-img">
+      <span class="brand-name">VEXORIUM LABS</span>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ================= HALAMAN UTAMA (LIST APLIKASI + SEARCH BAR) ================= -->
+    <div id="pageMain" class="page active">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <h2 style="font-size: 1.8rem; font-weight: 800; background: linear-gradient(to right, #fff, var(--periwinkle-main)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          WhatsApp MOD
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">╰┈➤Search and find your favorite WhatsApp MOD version:
+        </p>
+      </div>
+
+      <!-- KOLOM PENCARIAN AESTHETIC -->
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="🧐 Search for applications, example: whatsapp..." oninput="filterApps()">
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- 🟢 TITIK 1: IKLAN NATIVE BANNER ADSTERRAH (HALAMAN UTAMA) -->
+      <!-- ================================================================= -->
+      <div class="ad-container-native">
+        <!-- PASTE KODE SCRIPT NATIVE BANNER ADSTERRAH KAMU DI SINI -->
+      </div>
+      <!-- ================================================================= -->
+
+      <!-- Container Grid Pilihan Aplikasi -->
+      <div class="app-grid" id="appGridContainer">
+        <!-- List Aplikasi dimasukkan otomatis lewat JavaScript -->
+      </div>
+    </div>
+
+    <!-- ================= HALAMAN DETAIL APLIKASI ================= -->
+    <div id="pageDetail" class="page">
+      <button class="btn-back" onclick="showPage('pageMain')">☚⍢⃝☚ Kembali ke Daftar WhatsApp</button>
+
+      <div class="app-card">
+        <span class="app-badge" id="detailBadge">Official Release</span>
+        <img id="detailIcon" src="" alt="App Icon" class="wa-app-icon">
+        <h1 class="app-title" id="detailTitle">Title</h1>
+        <div class="app-version" id="detailVersion">Version</div>
+
+        <p class="app-desc" id="detailDesc">Description</p>
+
+        <!-- ================================================================= -->
+        <!-- 🟢 TITIK 2: IKLAN NATIVE BANNER ADSTERRAH (HALAMAN DETAIL) -->
+        <!-- ================================================================= -->
+        <div class="ad-container-native">
+          <!-- PASTE KODE SCRIPT NATIVE BANNER ADSTERRAH KAMU DI SINI -->
+        </div>
+        <!-- ================================================================= -->
+
+        <table class="info-table">
+          <tr>
+            <td>Package Name</td>
+            <td id="detailPackage">-</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td id="detailSize">-</td>
+          </tr>
+          <tr>
+            <td>UID</td>
+            <td id="detailDate">-</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td id="detailDev">-</td>
+          </tr>
+        </table>
+
+        <button class="btn btn-primary" style="max-width: 400px; margin: 0 auto;" onclick="showPage('pageUnlock')">Download</button>
+      </div>
+    </div>
+
+    <!-- ================= HALAMAN SUB4UNLOCK ================= -->
+    <div id="pageUnlock" class="page">
+      <button class="btn-back" onclick="showPage('pageDetail')">☚⍢⃝☚ Kembali ke Detail</button>
+
+      <div class="app-card" style="max-width: 500px; margin: 0 auto;">
+        <h2>🔒 Unlock Link Download</h2>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px;">
+          Selesaikan langkah di bawah untuk membuka link download file dari VEXORIUM LABS.
+        </p>
+
+        <div class="step-list">
+          <button id="btnSubscribe" class="btn btn-yt" onclick="doSubscribe()">
+            ▶️ Subscribe YouTube (Langkah 1)
+          </button>
+        </div>
+
+        <button id="btnFinalDownload" class="btn btn-disabled" disabled onclick="startDownload()">
+          🔒 Link Terkunci
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-container">
+    <div class="footer-card">
+      <div>
+        <div class="footer-brand">
+          <img id="footerLogo" src="" alt="VEXORIUM LABS Logo" class="footer-logo-img">
+          <span class="footer-brand-name">VEXORIUM LABS MODZ</span>
+        </div>
+        <p class="footer-desc">
+          Download Best Mod WhatsApp Apks Latest Version for Android.
+        </p>
+      </div>
+
+      <div class="footer-pages">
+        <h4>Pages</h4>
+        <a href="#" onclick="showPage('pageMain'); return false;">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      &copy; VEXORIUM LABS MODZ &bull; All Rights Reserved
+    </div>
+  </footer>
+
+  <script>
+    // =========================================================================
+    // 1. PENGATURAN URL LOGO NAVBAR & FOOTER
+    // =========================================================================
+    const NAVBAR_LOGO_URL = "https://www.image2url.com/r2/default/images/1785413848998-7ffcce7c-96ac-4f24-93b4-3faade46651a.png";
+    const FOOTER_LOGO_URL = "https://www.image2url.com/r2/default/images/1785412331980-a28179c4-3612-4e30-bf6b-0515123a799f.jpg";
+
+    // =========================================================================
+    // 2. DAFTAR PILIHAN BANYAK APLIKASI WHATSAPP MOD
+    // =========================================================================
+    const appList = [
+      {
+    id: "base aktivator",
+    name: "LATEST BASE ACTIVATOR (JULY) 2026",
+    version: "Latest Base",
+    package: "com.universe.messenger",
+    size: "136 MB",
+    date: "2147483647",
+    dev: "-",
+    badge: "Latest 2026",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+    desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+    downloadUrl: "https://www.mediafire.com/file/b27l9m0xq7cln2k/LATEST_BASE_ACTIVATOR_%2528JULY%2529_2026.apk/file"
+  },
+      {
+        id: "wa-tisu",
+        name: "TISU V46 (BETA) | Method fix | New Whatsapp Tips |New Whatsapp Mod in 2026",
+        version: "v46 tisuMods",
+        package: "com.universe.messenger",
+        size: "113 MB",
+        date: "2147483647",
+        dev: "-",
+        badge: "Latest 2026",
+        iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+        desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+        downloadUrl: "https://www.mediafire.com/file/me3q3jpro3204xz/TISU_V46_%2528BETA%2529.apk/file"
+      },
+      {
+        id: "SK-whatsapp",
+        name: "♤AN WhatsApp♤ ♡SKWhatsApp༆216♡ | Method fix | New Whatsapp Tips |New Whatsapp Mod in 2026",
+        version: "SKMods",
+        package: "com.HAwhatsapp",
+        size: "135 MB",
+        date: "2147483647",
+        dev: "-",
+        badge: "Latest 2026",
+        iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+        desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+        downloadUrl: "https://www.mediafire.com/file/i0075jp11pssu9w/%25E2%2599%25A4%25F0%259D%2590%2580%25F0%259D%2590%258D_%25F0%259D%2590%2596%25F0%259D%2590%25A1%25F0%259D%2590%259A%25F0%259D%2590%25AD%25F0%259D%2590%25AC%25F0%259D%2590%259A%25F0%259D%2590%25A9%25F0%259D%2590%25A9%25E2%2599%25A4_%25E2%2599%25A1%25F0%259D%2590%2592%25F0%259D%2590%258A%25E0%25BC%2586%25F0%259D%259F%25AE%25F0%259D%259F%25AD%25F0%259D%259F%25B2%25E2%2599%25A1_2.26.17.73.apk/file"
+      },
+      {
+        id: "delta-whatsapp",
+        name: "Delta WhatsApp v3.6.3 | Method fix | New Whatsapp Tips |New Whatsapp Mod in 2026",
+        version: "delta v3.6.3",
+        package: "com.gbwhatsapp",
+        size: "147 MB",
+        date: "2147483647",
+        dev: "-",
+        badge: "Latest 2026",
+        iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+        desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+        downloadUrl: "https://www.mediafire.com/file/q3r3hgb3da2nw4q/WhatsApp_DELTA_V3.6.3_77.apk/file"
+      },
+      {
+    id: "CLWhatsApp",
+    name: "CLWhatsApp",
+    version: "Latest Version",
+    package: "com.gbwhatsapp",
+    size: "112 MB",
+    date: "2147483647",
+    dev: "-",
+    badge: "Latest 2026",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+    desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+    downloadUrl: "https://www.mediafire.com/file/0gx1y6mc0m0v4hk/CLWhatsApp_Mod.apk/file"
+  },
+      {
+    id: "WA-Karina",
+    name: "GBWhatsApp Karina",
+    version: "𝜊ғᷜғͣɪͬᴄͥɪᷡᴀͣʟ°¥Ø₩₳ V458",
+    package: "com.gbwhatsapp2",
+    size: "198 MB",
+    date: "2147483647",
+    dev: "-",
+    badge: "Latest 2026",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+    desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+    downloadUrl: "https://www.mediafire.com/file/53s104yhpzroa6b/%25F0%259D%259C%258A%25D2%2593%25E1%25B7%259C%25D2%2593%25CD%25A3%25C9%25AA%25CD%25AC%25E1%25B4%2584%25CD%25A5%25C9%25AA%25E1%25B7%25A1%25E1%25B4%2580%25CD%25A3%25CA%259F%25C2%25B0%25C2%25A5%25C3%2598%25E2%2582%25A9%25E2%2582%25B3%25C2%25B0V458_2.26.21.75_com.gbwhatsapp2.apk/file"
+      },
+      {
+    id: "GB-Ekstrem",
+    name: "GBWhatsApp Ekstrem",
+    version: "V26.77",
+    package: "com.universe.messenger",
+    size: "188 MB",
+    date: "2147483647",
+    dev: "-",
+    badge: "Latest 2026",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+    desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+    downloadUrl: "https://www.mediafire.com/file/b0rskix4zxyofvy/GBEXTREME_MAS_V26.77.apk/file"
+      },
+      {
+    id: "CAWhatsApp",
+    name: "CAWhatsApp",
+    version: "Latest Version",
+    package: "com.gbwhatsapp",
+    size: "173 MB",
+    date: "2147483647",
+    dev: "-",
+    badge: "Latest 2026",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+    desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+    downloadUrl: "https://www.mediafire.com/file/hpcexyfeoeoujvu/CAWhatsApp_2.26.17.73.apk/file"
+  },
+      {
+        id: "wa-plus",
+        name: "Plus_YesiiMods_V5.40 | Method fix | New Whatsapp Tips |New Whatsapp Mod in 2026",
+        version: "v5.40 YesiiMods",
+        package: "com.universe.messenger",
+        size: "198 MB",
+        date: "2147483647",
+        dev: "-",
+        badge: "Latest 2026",
+        iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+        desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+        downloadUrl: "https://www.mediafire.com/file/istok2i60c6y4pf/%255BCOM.UNI%255DPlus_YesiiMods_V5.40.apk/file"
+      },
+      {
+    id: "GB-KMWhatsApp",
+    name: "KMWhatsApp",
+    version: "Latest Version",
+    package: "com.gbwhatsapp",
+    size: "144 MB",
+    date: "2147483647",
+    dev: "-",
+    badge: "Latest 2026",
+    iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
+    desc: "Greetings! If you're looking for an alternative to WhatsApp, such as GBWhatsApp, WhatsApp Plus, FMWhatsApp, or HAWhatsapp, you've come to the right place. We invite you to download the best WhatsApp MOD here, offering incredible features. You no longer have to settle for basic features; instead, you can enjoy a better instant messaging experience.",
+    downloadUrl: "https://www.mediafire.com/file/q3odq0rsrhq2yn9/KMWhatsApp_2.26.17.73_BY_KALOI_MODS.apk/file"
+      }
+    ];
+
+    // =========================================================================
+    // 3. LINK YOUTUBE SUB4UNLOCK
+    // =========================================================================
+    const YOUTUBE_CHANNEL_URL = "https://youtube.com/@vexoriumlabs?si=ov9_7dXmcQ9Gziw6";
+
+    // Set Logo Navbar & Footer
+    document.getElementById('navbarLogo').src = NAVBAR_LOGO_URL;
+    document.getElementById('footerLogo').src = FOOTER_LOGO_URL;
+
+    let selectedApp = null;
+    let isSubscribed = false;
+
+    // Load & Render Daftar Aplikasi ke Grid
+    function renderAppGrid(appsToRender = appList) {
+      const grid = document.getElementById('appGridContainer');
+      grid.innerHTML = '';
+
+      if (appsToRender.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
+            <p style="font-size: 1.1rem; font-weight: 600;">Aplikasi tidak ditemukan... 🔍</p>
+            <p style="font-size: 0.85rem; margin-top: 5px;">Coba kata kunci pencarian yang lain.</p>
+          </div>
+        `;
+        return;
+      }
+
+      appsToRender.forEach(app => {
+        const card = document.createElement('div');
+        card.className = 'app-card app-card-item';
+        card.innerHTML = `
+          <span class="app-badge">${app.badge}</span>
+          <img src="${app.iconUrl}" class="wa-app-icon" alt="${app.name}">
+          <h3 class="app-title">${app.name}</h3>
+          <div class="app-version">${app.version}</div>
+          <p class="app-desc" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${app.desc}</p>
+          <button class="btn btn-primary" onclick="openAppDetail('${app.id}')">Lihat Detail & Download</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Fungsi Filter Pencarian (Search Bar)
+    function filterApps() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const filtered = appList.filter(app => 
+        app.name.toLowerCase().includes(query) || 
+        app.desc.toLowerCase().includes(query) ||
+        app.badge.toLowerCase().includes(query)
+      );
+      renderAppGrid(filtered);
+    }
+
+    // Buka Halaman Detail Aplikasi yang Dipilih
+    function openAppDetail(appId) {
+      selectedApp = appList.find(a => a.id === appId);
+      if(!selectedApp) return;
+
+      document.getElementById('detailBadge').innerText = selectedApp.badge;
+      document.getElementById('detailIcon').src = selectedApp.iconUrl;
+      document.getElementById('detailTitle').innerText = selectedApp.name;
+      document.getElementById('detailVersion').innerText = selectedApp.version;
+      document.getElementById('detailDesc').innerText = selectedApp.desc;
+      document.getElementById('detailPackage').innerText = selectedApp.package;
+      document.getElementById('detailSize').innerText = selectedApp.size;
+      document.getElementById('detailDate').innerText = selectedApp.date;
+      document.getElementById('detailDev').innerText = selectedApp.dev;
+
+ // Reset Status Lock
+      isSubscribed = false;
+      const finalBtn = document.getElementById('btnFinalDownload');
+      finalBtn.className = "btn btn-disabled";
+      finalBtn.disabled = true;
+      finalBtn.innerText = "🔒 Link Terkunci";
+
+      showPage('pageDetail');
+    }
+
+    // Fungsi Pindah Halaman
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+   // Fungsi Klik Subscribe YouTube
+    function doSubscribe() {
+      window.open(YOUTUBE_CHANNEL_URL, '_blank');
+      setTimeout(() => {
+        isSubscribed = true;
+        const finalBtn = document.getElementById('btnFinalDownload');
+        finalBtn.className = "btn btn-primary";
+        finalBtn.disabled = false;
+        finalBtn.innerText = "⚡ Download File Sekarang";
+        alert("Terima kasih! Tombol download telah dibuka.");
+      }, 1000);
+    }
+
+    // Fungsi Download
+    function startDownload() {
+      if (isSubscribed && selectedApp) {
+        window.open(selectedApp.downloadUrl, '_blank');
+      }
+    }
+
+  // Inisialisasi Tampilan
+    renderAppGrid();
+
+    // Inisialisasi Efek Partikel 3D (Warna Periwinkle & Indigo)
+    tsParticles.load("tsparticles", {
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 45,
+          density: { enable: true, value_area: 800 }
+        },
+        color: { value: ["#a5b4fc", "#818cf8", "#c7d2fe"] },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.6,
+          random: true
+        },
+        size: {
+          value: { min: 1, max: 4 }
+        },
+        move: {
+          enable: true,
+          speed: 1.2,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: { default: "out" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "grab" }
+        },
+        modes: {
+          grab: { distance: 140, links: { opacity: 0.4, color: "#a5b4fc" } }
+        }
+      },
+      detectRetina: true
+    });
+    </script>
+
+  <!-- ================================================================= -->
+  <!-- 🟢 TITIK 3: IKLAN SOCIAL BAR ADSTERRAH (MELAYANG DI SELURUH HALAMAN) -->
+  <!-- ================================================================= -->
+  <!-- PASTE KODE SCRIPT SOCIAL BAR ADSTERRAH KAMU DI SINI -->
+  <!-- Contoh: <script type='text/javascript' src='//...adsterra...js'></script> -->
+  <!-- ================================================================= -->
+
+</body>
+</html>
